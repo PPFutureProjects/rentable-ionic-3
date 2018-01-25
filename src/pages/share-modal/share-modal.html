@@ -1,0 +1,61 @@
+
+<ion-header>
+  <ion-toolbar color="primary" hideBackButton="true">
+    <ion-title text-capitalize>share via</ion-title>
+    <ion-buttons (click)="close()" end>
+      <button ion-button text-right color="light">
+        <ion-icon md="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list no-margin>
+
+    <ion-item (click)="close()">
+      <ion-avatar item-left>
+        <img src="assets/img/dropbox.png">
+      </ion-avatar>
+      <h2>Dropbox</h2>
+    </ion-item>
+
+    <ion-item (click)="shareViaFacebook();close()">
+      <ion-avatar item-left>
+        <img src="assets/img/facebook.png">
+      </ion-avatar>
+      <h2>Facebook</h2>
+    </ion-item>
+
+    <ion-item (click)="shareViaEmail();close()">
+      <ion-avatar item-left>
+        <img src="assets/img/gmail.png">
+      </ion-avatar>
+      <h2>Gmail</h2>
+    </ion-item>
+
+    <ion-item (click)="shareViaInstagram();close()">
+      <ion-avatar item-left>
+        <img src="assets/img/instagram.png">
+      </ion-avatar>
+      <h2>Instagram</h2>
+    </ion-item>
+
+    <ion-item (click)="shareViaTwitter();close()">
+      <ion-avatar item-left>
+        <img src="assets/img/twitter.png">
+      </ion-avatar>
+      <h2>Twitter</h2>
+    </ion-item>
+
+    <ion-item (click)="close()">
+      <ion-avatar item-left>
+        <img src="assets/img/hangout.png">
+      </ion-avatar>
+      <h2>Hangout</h2>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

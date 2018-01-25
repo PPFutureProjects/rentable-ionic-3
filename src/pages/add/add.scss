@@ -1,0 +1,141 @@
+page-add {
+	.titleheight {
+    margin-top: 0.5rem;
+    font-size: 2rem;
+    border:groove;
+    border-radius:2rem;
+  }
+  .titlefont {
+    font-size: 1.3rem;
+    margin-top: -0.5rem;
+  }
+  .segment_info1{
+    column-width: 60vw;
+    width: 60vw !important;
+  }
+
+  .titleimage{
+  	height: 15vw;
+  }
+  .card-ios {
+    width: calc(100% );
+   }
+
+  
+
+  .label-ios{
+  	margin:0px;
+  }
+
+  .image-item{
+    position: relative;
+    display: inline-block;
+    padding:0px !important;
+    margin:0px !important;
+    border:1px solid white;;
+  }
+
+  .grid-list{
+    width: 50%;
+    float: left;
+    padding-bottom: 0;
+    padding:0px !important;
+    margin-top: 0px;
+    margin-bottom: -5px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .grid-list-image{
+    width: 50%;
+    float: left;
+    padding-bottom: 0;
+    padding:0px !important;
+    height: 47vw;
+    margin-top: 0px;
+    margin-bottom: -5px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+
+  .imageborder{
+    width: auto;
+    background-color: transparent;
+    height: 50vw;
+
+  }
+
+  .imagephoto{
+    width: auto;
+    background-color: transparent !important;
+    height: 20vw;
+    margin-top: 7vw;
+    margin-right: 10vw;
+    margin-left: 11vw;
+    margin-bottom: 5vw;
+  }
+
+  .imagecamera{
+    width: auto;
+    background-color: transparent;
+    height: 20vw;
+    margin-right: 8vw;
+    margin-top: 7vw;
+    margin-left: 9vw;
+    margin-bottom: 5vw;
+  }
+
+  .imagetext{
+    color: red;
+    text-align: center;
+    margin-bottom: 5rem;
+    font-size: 1.8rem;
+  }
+
+
+}
+
+.postitemdiv{
+  text-align: center;
+  padding: 2px 0;
+  color: white;
+  width: 100%;
+  font-size: 1rem;
+  background-color: #2e343e;
+  border-top: thin groove white;
+  height: 60px;
+}
+
+.logoblackborder{
+  border:thin solid gray;
+  border-radius: 50%;
+  width: 35px;
+  height:35px;
+  margin:auto;
+}
+
+.posttitle{
+  padding-top: 3px;
+  margin:0px;
+  .graycolor{
+    color: gray;
+  }
+}
+
+.logoimage.dollar{
+  margin: 6px 0 0 2px;
+  height: 23px;
+  width: auto;
+}
+.logoimagephoto{
+  margin-top: 9px;
+  width: 17px;
+}
+
+.nextbutton{
+  margin:0px;
+  font-size:20px;
+  color:white;
+  text-align: right;
+}

@@ -1,0 +1,77 @@
+
+<ion-content class="appcontent">
+	<div class="signupdiv">
+    <ion-row>
+      <ion-col  col-4 >
+        <div [navPush]="register" class="logoborder">
+          <img class="logoimage" src="assets/icon/security.png">
+        </div>
+      </ion-col>
+      <ion-col col-4>
+        <div [navPush]="signup" class="logoborder">
+          <img class="logoimage" src="assets/icon/padlock.png">
+        </div>
+      </ion-col>
+      <ion-col col-4>
+        <div class="logoborder">
+          <img class="logoimage" src="assets/icon/man-user-white.png">
+        </div>
+      </ion-col>
+    </ion-row>
+    <form class="signupform" [formGroup]="finishsignupform">
+      <ion-list>
+        <ion-label class="helpstring">
+          ENTER YOUR FIRST NAME
+        </ion-label>
+        <ion-item class="inputmagin" no-padding>
+          <ion-input class="inputstyle" 
+          type="text" 
+          formControlName="firstname"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="finishsignupform.controls['firstname'].hasError('required') && finishsignupform.controls['firstname'].touched">
+          <p>* firstname is required</p>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="finishsignupform.controls['firstname'].hasError('maxlength') && finishsignupform.controls['firstname'].touched">
+            <p> *Maximum firstname length is 50</p>
+        </ion-item>
+        <ion-label class="helpstring">
+          ENTER YOUR LAST NAME
+        </ion-label>
+        <ion-item class="inputmagin" no-padding>
+          <ion-input class="inputstyle" type="text" formControlName="lastname" ></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="finishsignupform.controls['lastname'].hasError('required') && finishsignupform.controls['lastname'].touched">
+          <p>* lastname is required</p>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="finishsignupform.controls['lastname'].hasError('maxlength') && finishsignupform.controls['lastname'].touched">
+            <p> *Maximum lastname length is 50</p>
+        </ion-item>
+        <ion-label class="helpstring">
+          ENTER YOUR POSTAL CODE
+        </ion-label>
+        <ion-item class="inputmagin" no-padding>
+          <ion-input class="inputstyle" type="Number" formControlName="postalcode" ></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="finishsignupform.controls['postalcode'].hasError('required') && finishsignupform.controls['postalcode'].touched">
+          <p>* postalcode is required</p>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="finishsignupform.controls['postalcode'].hasError('maxlength') && finishsignupform.controls['postalcode'].touched">
+            <p> *Maximum postalcode length is 10</p>
+        </ion-item>
+        <ion-row>
+          <ion-col col-10>
+            <ion-label style="text-align: left;">
+              <a style="color: white;font-size: 2rem" href="#" onclick="window.open('http://www.nraboy.com/contact', '_system', 'location=yes'); return false;">
+                  Agree to our terms
+              </a>
+            </ion-label>
+          </ion-col>
+          <ion-col col-2 class="checkstyle">
+            <ion-checkbox  color="secondary"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+      <button ion-button class="signupbutton" (click)="finishsignup()">REGISTER</button>
+    </form>
+  </div>
+</ion-content>

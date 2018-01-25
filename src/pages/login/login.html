@@ -1,0 +1,15 @@
+<ion-content padding class="appcontent">
+
+  <p class="welcometitle">Welcome back {{name}}</p>
+  <form  class="loginform">
+    <ion-list >
+      <p class="helpstring">ENTER YOUR PASSWORD</p>
+      <ion-item no-padding>
+        <ion-input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="inputborder" ></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button class="loginbutton" style="width: 100%;" (click)="login()">LOGIN</button>
+    <p text-center class="forgotpassword" (click)="forgotPassword()">Forgot Password</p>
+
+  </form>
+</ion-content>

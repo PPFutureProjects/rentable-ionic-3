@@ -1,0 +1,73 @@
+
+<ion-header>
+
+  <ion-navbar class="profileheader"  hideBackButton="true" >
+    <ion-row >
+      <ion-col col-9 style="color: white;">
+        {{photourlname}}
+      </ion-col>
+      <ion-col col-3 class="nextbutton">
+      	<ion-label  (click)="gopostdetail()">
+      		Next
+      	</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding class="app-content">
+  <ion-label style="color: black;">{{thumname}}</ion-label>
+  <div class="postitemdiv">
+    <ion-row>
+      <ion-col col-3>
+      </ion-col>
+      <ion-col col-2 >
+        <div class="logoborder">
+          <img class="logoimagephoto"  src="assets/icon/photocamera_white.png">
+        </div>
+        <ion-label class="posttitle">
+          Photos
+        </ion-label>
+      </ion-col>
+      <ion-col [navPush]="signup" col-2>
+        <div class="logoblackborder">
+          <img class="logoimage" src="assets/icon/postdetail_black.png">
+        </div>
+        <ion-label class="posttitle graycolor">
+          Details
+        </ion-label>
+      </ion-col>
+      <ion-col [navPush]="finishsign" col-2>
+        <div class="logoblackborder">
+          <img class="logoimage dollar" src="assets/icon/dollar-symbol.png">
+        </div>
+        <ion-label class="posttitle graycolor">
+          Costs
+        </ion-label>
+      </ion-col>
+      <ion-col col-3>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-card class="grid-list-image" style="text-align: center;">
+    <div class="image-item" no-lines>
+      <img (click)="takephoto()" class="imagecamera" style="background-color: white" src="assets/icon/camera.png" />
+    </div>
+    <label class="imagetext">Take a Photo</label>
+  </ion-card>
+  <ion-card class="grid-list-image" style="text-align: center;">
+    <div class="image-item" no-lines>
+      <img (click)="getimage()" class="imagephoto" style="background-color: white" src="assets/icon/film.png" />
+    </div>
+    <label class="imagetext">Select a Photo</label>
+  </ion-card>
+  <ion-card class="grid-list " *ngFor="let item of imagelist; let i=index; ">
+    <div class="image-item" no-lines>
+      <img (click)="deleteimage(i)" class="imageborder" style="background-color: white" src="{{item}}" />
+    </div>
+  </ion-card>
+  <ion-label style="color: black;">{{filename}}</ion-label>
+	
+</ion-content>

@@ -1,0 +1,27 @@
+page-about{
+  .content-bg{
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  .abouttitle{
+    text-align: center;
+    padding:22px 0;
+  }
+
+  h5{
+    margin:0;
+    color: gray;
+  }
+
+}
+.aboutheader{
+  font-size: 28px;
+  padding-top: 8px;
+  color:white;
+}
+
+.navetitle{
+  font-size: 24px;
+  color:white;
+}

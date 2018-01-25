@@ -1,0 +1,56 @@
+
+<ion-header >
+
+  <ion-toolbar no-padding   >
+    <ion-row class="profileheader" >
+      <ion-col  col-1 class="icon-col">
+        <img src="assets/icon/avatar.png" style="margin-top: 10px;" [navPush]="profile">
+      </ion-col>
+      <ion-col class="icon-col" col-10>
+      <!--   <ion-searchbar  class="searchbar" placeholder="Find items near you"></ion-searchbar> -->
+      <ion-searchbar class="searchbar" placeholder="Find items near you" [(ngModel)]="searchtext" (ionInput)="filterItems($event)"></ion-searchbar>
+      </ion-col>
+      <ion-col class="icon-col" col-1>
+        <img src="assets/icon/filter.png" style="margin-top: 10px;" [navPush]="search">
+       </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding class="app-content " >
+
+  <ion-scroll  scrollX="true" class="categorystyle" >
+    <ion-segment [(ngModel)]="timeline" style="justify-content: left;">
+      <ion-segment-button class="segmenthover" *ngFor="let item of categorylist" (click)="myFunction($event)"  value="{{item.value}}" >
+        <img src="{{item.inactive_img}}" class="categoryimg">
+        <p class="categoryfont">{{item.title}}</p>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-scroll>
+
+  <!-- <ion-card
+    class="grid-list backcolor" *ngFor="let item of searchcategory; let i=index; ">
+    <div class="image-item" no-lines>
+      <img (click)="godetails(i)" class="wardrobe" src="assets/img/01.png" />
+      <ion-label class="cover_1" >
+        ${{item.price}}
+      </ion-label>
+      <img *ngIf="!like[i]" class="cover_image" (click)="DeactiveLike(i)" src="assets/icon/like.png">
+      <img *ngIf="like[i]" class="cover_image" (click)="ActiveLike(i)" src="assets/icon/like-full.png">
+    </div>
+  </ion-card> -->
+<ion-card
+  class="grid-list backcolor">
+  <div class="image-item" no-lines>
+    <img (click)="godetails(i)" class="wardrobe" src="assets/img/01.png" />
+    
+    <ion-label class="cover_1" > $1000</ion-label>
+  
+    <img *ngIf="!like[i]" class="cover_image" (click)="DeactiveLike(i)" src="assets/icon/like.png">
+
+    <img *ngIf="like[i]" class="cover_image" (click)="ActiveLike(i)" src="assets/icon/like-full.png">
+ 
+  </div>
+</ion-card>
+
+</ion-content>

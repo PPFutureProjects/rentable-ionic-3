@@ -1,0 +1,43 @@
+<ion-content class="appcontent">
+
+  <div class="Landingpage">
+    
+    <div class="formContainer">
+
+      <form  class="landingform" [formGroup]="forgetForm">    
+        <ion-list >
+			  <ion-item>
+			    <ion-label floating class="helpstring">Code</ion-label>
+			    <ion-input 
+			    class="inputstyle"
+			    type="text"
+			    formControlName="code" ></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label floating class="helpstring">New Password</ion-label>
+			    <ion-input
+			    class="inputstyle" 
+			    type="password"
+			    formControlName="newpass"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label floating class="helpstring">Confirm Password</ion-label>
+			    <ion-input 
+			    class="inputstyle"
+			    type="password"
+			    formControlName="conpass"></ion-input>
+			  </ion-item>
+
+
+		</ion-list>
+       <button ion-button id="button" class="submit-btn" (click)="forgetPassword()">Submit</button>
+      </form>
+
+
+
+	
+    </div>
+  </div>
+</ion-content>

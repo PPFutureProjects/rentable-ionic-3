@@ -1,0 +1,142 @@
+<ion-header>
+
+  <ion-toolbar no-padding >
+    <ion-row class="profileheader topheight" no-margin>
+      <ion-col col-1>
+        <ion-icon name="md-close" (click)="backdetail()" class="headertitle"></ion-icon>
+      </ion-col>
+      <ion-col col-11 >
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content no-padding no-margin class="app-content">
+  <div style="padding-left: 2vw; padding-right: 2vw;">
+    <h3 color="darken" class="rentalreview" align="center">Review your rental request</h3>
+    <ion-label class="requesttitle">
+      REQUESTED BY
+    </ion-label>
+    <ion-row>
+      <ion-col col-5>
+        <img src="{{renter.img}}" class="otherphoto">
+      </ion-col>
+      <ion-col col-7 >
+        <h5 style="font-weight: bold;">
+          {{renter.name}}
+        </h5>
+        <ion-label class="graytext">
+          {{renter.address}}
+        </ion-label>
+        <div *ngFor="let i of condition" class="conditionstar">
+          <img *ngIf="goodcondition[i]" class="starsize" src="assets/icon/star-red.png">
+          <img *ngIf="!goodcondition[i]" class="starsize" src="assets/icon/star.png">
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-label class="requesttitle">
+      REQUESTED BY
+    </ion-label>
+    <ion-row>
+      <ion-col col-4 >
+        <img src="{{renter.img}}" class="itemphoto">
+      </ion-col>
+      <ion-col col-8 class="itemtext">
+        <ion-label>
+          Item title
+        </ion-label>
+        <ion-label style="font-size: 13px;">
+          <span style="color: #f55349">Dates:</span>  {{Product.selectdate}} to {{Product.selectdate}}
+        </ion-label>
+        <ion-label>
+          <span style="color: #f55349">Total fee:</span>
+           ${{Product.total_cost}}
+          <ion-icon name="ios-help-outline" class="helpicon"></ion-icon>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+    <div style="text-align: center;">
+      <button ion-button [navPush]="rentreject" class="halfbutton rejectbutton" >REJECT</button>
+      <button ion-button [navPush]="accept" color="secondary" class="halfbutton acceptbutton">ACCEPT</button>
+    </div>
+      
+  </div>
+
+
+  <!--  <div class="content-bg">
+
+     <div class="rent-det" padding>
+        <img class="profile-img" src="assets/img/rent-img.png" />
+        <h3 color="darken" class="bold">Stylish house</h3>
+        <div class="stars">
+          <ion-icon name="md-star"></ion-icon>
+          <ion-icon name="md-star"></ion-icon>
+          <ion-icon name="md-star"></ion-icon>
+          <ion-icon name="md-star"></ion-icon>
+          <ion-icon name="md-star-half"></ion-icon>
+          <p color="dark" no-margin>4.6</p>
+        </div>
+        <p color="graytext" no-margin>Paradeplein, 2018 Antwerp, Belgium</p>
+     </div>
+
+     <ion-list class="filter-modal rent-det" no-margin padding>
+
+        <ion-grid no-padding>
+
+          <ion-row>
+            <ion-col class="icon-col" col-1>
+              <ion-icon name="md-calendar" color="secondary"></ion-icon>
+            </ion-col>
+            <ion-col col-5>
+              <h4 color="secondary" no-margin>Check in</h4>
+              <ion-item color="none" no-padding>
+                <ion-datetime displayFormat="DD MMM YYYY" placeholder="01 Jan 2017" [(ngModel)]="myDate"></ion-datetime>
+              </ion-item>
+            </ion-col>
+            <ion-col col-5>
+              <h4 color="secondary" no-margin>Check out</h4>
+              <ion-item color="none" no-padding>
+                <ion-datetime displayFormat="DD MMM YYYY" placeholder="01 Jan 2017" [(ngModel)]="myDate2"></ion-datetime>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col class="icon-col" col-1>
+              <ion-icon name="md-person" color="secondary"></ion-icon>
+            </ion-col>
+            <ion-col col-5>
+              <ion-item color="none" no-padding>
+                <ion-select>
+                  <ion-option value="0" [selected]="true">1 Guest</ion-option>
+                  <ion-option value="2">2 Guest</ion-option>
+                  <ion-option value="3">3 Guest</ion-option>
+                  <ion-option value="4">4 Guest</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+
+     </ion-list>
+
+     <ion-list class="price-list" no-margin padding>
+        <h4 color="graytext">Price</h4>
+        <ion-item no-padding>
+          Totel
+          <div text-right item-right>
+            <p color="dark" class="bold" no-margin>3.500$</p>
+            <p color="secondary" style="font-size: 1rem" no-margin>Per 15days, 3Guest</p>
+          </div>
+        </ion-item>
+     </ion-list>
+
+   </div>
+
+  <ion-fab [navPush]="home" center bottom>
+    <button ion-fab mini><ion-icon name="md-checkmark"></ion-icon></button>
+  </ion-fab> -->
+
+</ion-content>

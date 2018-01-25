@@ -1,0 +1,156 @@
+<ion-content >
+  <div class="home" >
+    <div class="backoverlay">
+    </div>
+    <ion-slides style="display: inline-block; height: 50vh; width: 100vw; margin-bottom: -4px;border: 0;"  loop="true" speed="3000">
+      <ion-slide >
+        <img src="assets/img/01.png">
+      </ion-slide>
+      <ion-slide >
+        <img src="assets/img/02.png">
+      </ion-slide>
+      <ion-slide >
+        <img src="assets/img/03.png">
+      </ion-slide>
+    </ion-slides>
+    <ion-icon name="ios-arrow-back" class="cover_header0" (click)="backicon()"></ion-icon>
+    <ion-icon name="shareicon" class="cover_header1"></ion-icon>
+    <img ng-click="nextSlide()" class="cover_header2" src="assets/icon/like.png">
+  </div>
+  <ion-row style="margin-top: -4rem;" no-padding>
+    <ion-col col-3 align="right">
+      <img [navPush]="otherprofile" src="assets/img/profile-img.png" class="profileimg">
+    </ion-col>
+    <ion-col col-6 style="padding-top: 10px;">
+      <p class="cover_name">
+        {{fullname}}
+      </p>
+      <div >
+        <img *ngFor="let item of itemgoodcondition" class="returnstarsize" src="assets/icon/star-red.png">
+        <img *ngFor="let item of itembadcondition" class="returnstarsize" src="assets/icon/star.png">
+      </div>
+    </ion-col>
+    <ion-col col-3 class="wardrobe">
+      <img src="assets/icon/CTA-bounds.png" style="width:8rem;left: 1.4rem;">
+      <ion-label class="cover_1" style="left: 8vw;">
+        ${{Product.price}}
+      </ion-label>
+      <ion-label class="cover_2" style="left: 8vw;">
+        Per day
+      </ion-label>
+    </ion-col>
+  </ion-row>
+  <div style="padding-bottom: 5rem;" padding>
+    <h4 >
+      {{Product.title}}
+    </h4>
+    <div style="opacity: 0.7;" >
+      <img *ngFor="let item of itemgoodcondition" class="returnstarsize" src="assets/icon/star-red.png">
+      <img *ngFor="let item of itembadcondition" class="returnstarsize" src="assets/icon/star.png">
+      <span style="margin-left:15px;">Item Condition = </span>{{itemconditiontext}}
+    </div>
+    <ion-row class="border" >
+      <ion-col class="graycolor" col-6>
+        <ion-label>
+          DESCRIPTION
+        </ion-label>
+      </ion-col>
+      <ion-col col-5>
+      </ion-col>
+      <ion-col col-1 class="add_remove">
+        <ion-icon *ngIf="!descriptionstatus" name="md-add" (click)="stopPlayback()"></ion-icon>
+        <ion-icon *ngIf="descriptionstatus"  name="md-remove" (click)="itemSelected()"></ion-icon>
+      </ion-col>
+      <ion-row>
+        <ion-item *ngIf="descriptionstatus">
+          <ion-label class="graycolor"  text-wrap>
+            {{Product.description}}
+          </ion-label>
+        </ion-item>
+      </ion-row>
+    </ion-row>
+    <ion-row class="bottomborder">
+      <ion-col class="graycolor" col-6>
+        <ion-label>
+          RENTAL DETAILS
+        </ion-label>
+      </ion-col>
+      <ion-col col-5>
+      </ion-col>
+      <ion-col col-1 class="add_remove">
+        <ion-icon *ngIf="!rentalstatus" name="md-add" (click)="rentalshow()"></ion-icon>
+        <ion-icon *ngIf="rentalstatus"  name="md-remove" (click)="rentalhide()"></ion-icon>
+      </ion-col>
+          <div *ngIf="rentalstatus" >
+      <ion-label>
+        DATES
+      </ion-label>
+      <ion-row class="locationstyle">
+        <ion-col col-1  >
+          <img class="locationicon" src="assets/icon/calendar_red.png">
+        </ion-col>
+        <ion-col col-6 class="middletext ">
+          Select Dates
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-1 class="rightposition middletext">
+          <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-label  style="padding-bottom: 10px;" class="bottomborder">
+        <span > Total Rental Cost:</span>
+        <span class="costsize">${{Product.total_cost}}</span>
+        <ion-icon name="ios-help-outline" class="helpicon" style="margin-left: 40vw;"></ion-icon>
+      </ion-label>
+      <button ion-button block (click)="sendrental()" class="defaultbutton send">Send Rental Request</button>
+      <ion-item style="color: black;">
+        <ion-row align="center">
+          <ion-col col-4>
+            <img [navPush]="pickup" class="pickborder" src="assets/icon/pickup.png">
+            <p>Pick Up</p>
+          </ion-col>
+          <ion-col col-4>
+            <img [navPush]="retrun" class="sendborder" src="assets/icon/back-arrow.png">
+            <p>Return</p>
+          </ion-col>
+          <ion-col col-4>
+            <img [navPush]="claim" class="sendborder" src="assets/icon/cancel.png">
+            <p>Cancel</p>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item class="bottomborder">
+        <p item-left class="helpstr">SEND MESSAGE</p>
+        <p item-right class="helpstr">{{messagenumber}}</p>
+      </ion-item>
+      <ion-item >
+        <ion-input  style="width: 80vw;" [(ngModel)]="messagetext" (ionChange)="number()" type="text" placeholder="input generate text"></ion-input>
+        <img item-right class="sendbutton" (click)="sendmessage()" src="assets/icon/ico_send.png">
+      </ion-item>
+    </div>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="graycolor" col-4>
+        <ion-label>
+          LOCATION
+        </ion-label>
+      </ion-col>
+      <ion-col col-7>
+      </ion-col>
+      <ion-col col-1 class="add_remove">
+        <ion-icon *ngIf="!locationstatus" name="md-add" (click)="locationshow()"></ion-icon>
+        <ion-icon *ngIf="locationstatus"  name="md-remove" (click)="locationhide()"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div *ngIf="locationstatus">
+    <div class="map-content" >
+      <div #map id="map" data-tap-disabled="true"></div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="detFooter">
+</ion-footer>

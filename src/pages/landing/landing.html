@@ -1,0 +1,29 @@
+
+<ion-content class="appcontent">
+
+  <div class="Landingpage">
+    <div id="recaptcha-container"></div>
+    <p class="apptitle">RENTABLE</p>
+
+    <div class="formContainer">
+
+      <form class="landingform">    
+        <ion-list >
+          <ion-item no-margin  style="border: 0;" >
+            <ion-select id="postal" style="margin-left:-1000px; " (ionchange)="coderesult()"  [(ngModel)]="countrycode" [ngModelOptions]="{standalone: true}">
+              <ion-option  *ngFor="let key of countries" [value]="key.dial_code">{{key.dial_code}}: {{key.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <p class="helpstring">ENTER YOUR MOBILE NUMBER</p>
+          <ion-item no-padding style="border: 0px;">
+            <ion-input class="grayborder width" text-center (click)="selectcode()" value="{{countrycode}}">
+            </ion-input>
+            <ion-input type="number" (ionChange)='numberfill()' [(ngModel)]="phonenumber" [ngModelOptions]="{standalone: true}" class="phoncode" placeholder="12344568562"></ion-input>
+          </ion-item>
+        </ion-list>
+        <button ion-button id="button" class="continubutton" (click)="dolanding()" [disabled]="buttonDisabled">CONTINUE</button>
+      </form>
+
+    </div>
+  </div>
+</ion-content>

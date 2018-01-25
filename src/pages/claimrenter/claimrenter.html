@@ -1,0 +1,115 @@
+<!--
+  Generated template for the ClaimrenterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar class="profileheader"  style="text-align: left;" hideBackButton="true">
+     <ion-icon [navPush]="detail" class="navetitle" name="md-close"></ion-icon>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding align="center" class="addcontent">
+	<p class="returntitle">
+		Responding to a Claim
+	</p>
+	<P class="helptext suggest">A claim has been submitted for an item you rented, the full details are below. You may respond to the claim by either accepting or rejecting this claim at the bottom of this screen</P>
+  <ion-label class="requesttitle">
+    OWNER SUBMITTING THE CLAIM
+  </ion-label>
+  <ion-row style="text-align: left;">
+    <ion-col col-5>
+      <img src="{{renter.img}}" [navPush]="otherprofile" class="otherphoto">
+    </ion-col>
+    <ion-col col-7 style="padding-top: 30px;" >
+      <h5 style="font-weight: bold;">
+        {{renter.name}}
+      </h5>
+      <ion-label class="graytext">
+        {{renter.address}}
+      </ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-label class="requesttitle">
+    ITEM THE CLAIM HAS BEEN SUBMITTED AGAINST
+  </ion-label>
+  <ion-row style="text-align: left;">
+    <ion-col col-4 >
+      <img src="{{renter.img}}" class="itemphoto">
+    </ion-col>
+    <ion-col col-8 class="itemtext">
+      <ion-label>
+        Pretty cool size 9 shoes
+      </ion-label>
+      <ion-label >
+        <span style="font-weight: 600;" >Dates:</span>  {{Product.selectdate}} to {{Product.selectdate}}
+      </ion-label>
+      <ion-label>
+        <span style="font-weight: 600;" >Total fee:</span>
+         ${{Product.total_cost}}
+      </ion-label>
+      <ion-label>
+        <span style="font-weight: 600;" >Bond:</span>
+         $100
+      </ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-label class="requesttitle">
+    CLAIM DETAILS SUBMITTED BY THE OWNER
+  </ion-label>
+	<p class="helptext condition">THIS IS THE ITEMS CONDITION WHEN RENTED</p>
+	<ion-label >
+    <img class="returnstarsize" src="assets/icon/star-grey.png">
+    <img class="returnstarsize" src="assets/icon/star-grey.png">
+    <img class="returnstarsize" src="assets/icon/star-grey.png">
+    <img class="returnstarsize" src="assets/icon/star-grey.png">
+    <img class="returnstarsize" src="assets/icon/star-grey-outline.png">
+  </ion-label>
+  <p class="goodstyle">VERY GOOD</p>
+  <p class="helptext condition">THIS IS THE ITEMS CONDITION WHEN RETURNED</p>
+  <ion-label >
+    <img class="returnstarsize" src="assets/icon/star-grey.png">
+    <img class="returnstarsize" src="assets/icon/star-grey.png">
+    <img class="returnstarsize" src="assets/icon/star-grey-outline.png">
+    <img class="returnstarsize" src="assets/icon/star-grey-outline.png">
+    <img class="returnstarsize" src="assets/icon/star-grey-outline.png">
+  </ion-label>
+  <p class="goodstyle">FAIR</p>
+  <p class="helptext condition">AMOUNT CLAIMED BY THE OWNER</p>
+  <p class="otherstyle">$50</p>
+  <ion-label class="commentstyle">
+		OWNERS COMMENTS BELOW
+	</ion-label>
+	<ion-label rows="5" type="text" class="feedbackshow" text-wrap>that is asdfasfdasfdasfasfasfasfasfasfasfasfasfdasfdasftest text</ion-label >
+	<p class="helptext condition">DO YOU AGREE WITH THIS CLAIM?</p>
+  <ion-row radio-group *ngIf="!agreewith" [(ngModel)]="agree">
+    <ion-col col-2>
+    </ion-col>
+    <ion-col col-2 >
+      Yes
+    </ion-col>
+      <ion-col col-2 >
+      <ion-radio (ionSelect)="radioChecked()" color="backwhite" value="yes"[ngClass]="(active_flag==false)?'radioclass1':'radioclass'" checked="true"></ion-radio>
+    </ion-col>
+    <ion-col col-2 >
+      No
+    </ion-col>
+    <ion-col col-2 >
+      <ion-radio (ionSelect)="radioChecked()" color="backwhite"  value="no" [ngClass]="(active_flag==false)?'radioclass':'radioclass1'"></ion-radio>
+    </ion-col>
+    <ion-col col-2>
+    </ion-col>
+  </ion-row>
+  <!-- <ion-row class="toggleheight">
+    <ion-col col-10>
+      <ion-label text-wrap style="font-size: 1.7rem;" >Yes / No</ion-label>
+    </ion-col>
+    <ion-col col-2 class="removeicon">
+      <ion-checkbox color="secondary" [(ngModel)]="agree"></ion-checkbox>
+    </ion-col>
+  </ion-row> -->
+	<button ion-button block  color="secondary" class="defaultbutton paddingbottom" >SUBMIT</button>
+</ion-content>
