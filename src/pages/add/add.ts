@@ -81,7 +81,8 @@ export class AddPage {
   reduceImages(selected_pictures: any) : any{
     return selected_pictures.reduce((promise:any, item:any) => {
       return promise.then((result) => {
-        return this.cropservice.crop(item, {quality: 75}).then(cropped_image => this.imagelist.push(cropped_image));
+        return this.cropservice.crop(item)
+        .then(cropped_image => this.imagelist.push(cropped_image));
       });
     }, Promise.resolve());
   }
