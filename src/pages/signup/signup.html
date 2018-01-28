@@ -38,36 +38,52 @@
       </ion-item>
       <ion-item class="inputmagin" no-padding>
         <ion-label stacked class="helpstring">ENTER YOUR PASSWORD</ion-label>
-        <ion-input class="inputstyle"  formControlName="password" type="password" ></ion-input>
+        <ion-input 
+        class="inputstyle"  
+        formControlName="password" 
+        type="password" 
+        ></ion-input>
       </ion-item>
       <ion-item class="error-message" *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched">
         <p>* Password is required</p>
       </ion-item>
+      
       <ion-item class="error-message" *ngIf="registerForm.controls['password'].hasError('maxlength') && registerForm.controls['password'].touched">
-        <p> *Maximum password length is 50</p>
+        <p> *Maximum password length is 10</p>
       </ion-item>
+      
       <ion-item class="error-message" *ngIf="registerForm.controls['password'].hasError('minlength') && registerForm.controls['password'].touched">
         <p> *Minimum password length is 10</p>
       </ion-item>
+      
+      <ion-item class="error-message" *ngIf="registerForm.controls['password'].hasError('pattern') && registerForm.controls['password'].touched">
+        <p> Required atleast one character,number and symbol</p>
+      </ion-item>
+
       <ion-item class="inputmagin" no-padding>
         <ion-label stacked class="helpstring">RE-ENTER YOUR PASSWORD</ion-label>
-        <ion-input class="inputstyle"  formControlName="confirmpassword" type="password"></ion-input>
+        <ion-input 
+        class="inputstyle"  
+        formControlName="confirmpassword" 
+        type="password"></ion-input>
       </ion-item>
       <ion-item class="error-message" *ngIf="registerForm.controls['confirmpassword'].hasError('required') && registerForm.controls['confirmpassword'].touched">
         <p>* Confirmpassword is required</p>
       </ion-item>
       <ion-item class="error-message" *ngIf="registerForm.controls['confirmpassword'].hasError('maxlength') && registerForm.controls['confirmpassword'].touched">
-        <p> *Maximum confirm password length is 50</p>
+        <p> *Maximum confirm password length is 10</p>
       </ion-item>
       <ion-item class="error-message" *ngIf="registerForm.controls['confirmpassword'].hasError('minlength') && registerForm.controls['confirmpassword'].touched">
         <p> *Minimum confirmpassword length is 10</p>
       </ion-item>
+   
       <button 
       ion-button class="signupbutton" 
       style="width: 100%;" 
       (click)="doRegister()" 
       type="submit"
       [disabled]="!registerForm.valid">CONTINUE</button>
+   
     </form>
   </div>
 

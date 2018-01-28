@@ -33,7 +33,7 @@ export class Register {
     ) {
 
   	this.formgroup = formBuilder.group({
-        digitcode: ['', Validators.compose([Validators.required, Validators.minLength(4) ])]
+        digitcode: ['', Validators.compose([Validators.required,Validators.minLength(4) ])]
     });
     this.Usersignup=[];
     this.digitcode=this.formgroup.controls['digitcode'];
@@ -99,6 +99,32 @@ export class Register {
     
   }
 
+  /*
+  function to send otp again
+  */
+  sendOtp(){
+    console.log("send otp again");
+    //send otp to number 
+    this.Authprovider.Sendsms(this.phonenumber).subscribe(data=>{
+      console.log(data.json());
+      
+      if(data.json().msg=="success"){ 
+        this.showToast("Otp has been sent to your registered number");
+      }
+      
+      if(data.json().msg=="error"){
+         this.showToast("Please try again later");
+      }
+
+    },
+     err=>{
+        console.log(err);
+     }
+
+    );
+
+  }
+
   showToastWithCloseButton(msg:string) {
      const toast = this.toastCtrl.create({
       message: msg,
@@ -108,4 +134,13 @@ export class Register {
     toast.present();
   }
 
+  showToast(msg:string) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 2000,
+      position: "top"
+    });
+
+    toast.present(toast);
+  }
 }

@@ -1162,8 +1162,10 @@ export class LandingPage {
                */
                if(this.details[0].status=="Active"){
                  console.log("Active");
+                 console.log(this.details[0].firstName);
                   this.navCtrl.push(Login,{
-                    pnumber:this.number
+                    pnumber:this.number,
+                    pname:this.details[0].firstName
                   });
                }
 
@@ -1200,7 +1202,7 @@ export class LandingPage {
     let toast = this.toastCtrl.create({
       message: msg,
       duration: 2000,
-      position: "bottom"
+      position: "top"
     });
 
     toast.present(toast);

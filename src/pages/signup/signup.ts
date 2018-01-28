@@ -44,10 +44,11 @@ export class SignupPage {
     private fb: Facebook
   ) {
     let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+    let PASSWORD_REGEXP=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{10,}$/i;
     this.registerForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.pattern(EMAIL_REGEXP),Validators.maxLength(80)])],
-      password: ['', Validators.compose([Validators.maxLength(50),Validators.minLength(10), Validators.required])],
-      confirmpassword: ['', Validators.compose([Validators.minLength(10), Validators.required,Validators.maxLength(50)])]
+      password: ['', Validators.compose([Validators.maxLength(10),Validators.minLength(10), Validators.required,Validators.pattern(PASSWORD_REGEXP)])],
+      confirmpassword: ['', Validators.compose([Validators.minLength(10), Validators.required,Validators.maxLength(10)])]
     });
     this.Usersignup=navParams.get("user");
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');

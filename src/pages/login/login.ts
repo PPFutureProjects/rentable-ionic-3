@@ -38,10 +38,9 @@ export class Login {
   ) {
 
     this.expanded = true;
-    this.name="Matias";
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
     this.phonenumber=navParams.get("pnumber");
-   
+    this.name=navParams.get("pname");
     // this.fcm.getToken()
     //   .then((token:string)=>{
     //     this.token=token;

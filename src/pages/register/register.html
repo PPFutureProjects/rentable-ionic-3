@@ -26,7 +26,7 @@
       <ion-list >
         <p class="helpstring">ENTER YOUR VERIFICATION CODE</p>
         <ion-item  no-padding>
-          <ion-input type="number" class="inputstyle" formControlName="digitcode"></ion-input>
+          <ion-input type="number" class="inputstyle" formControlName="digitcode" ></ion-input>
         </ion-item>
         <ion-item *ngIf="digitcode.hasError('required') && digitcode.touched">
           <p> *digitcode is required</p>
@@ -36,6 +36,10 @@
         </ion-item>
       </ion-list>
       <button ion-button class="signupbutton" style="width: 100%;" (click)="gosignup()" [disabled]="!formgroup.valid">CONTINUE</button>
+      
+      <button ion-button  clear color="backwhite" (click)="sendOtp()">Resend OTP</button>
     </form>
+
+
   </div>
 </ion-content>
