@@ -97,6 +97,5 @@ export const allPages = {
 	ClaimrenterPage,
 	PickupPage,
 	OpportunityPage,
-	PayPage,
-	ForgetpassswordPage
+	PayPage
 };
