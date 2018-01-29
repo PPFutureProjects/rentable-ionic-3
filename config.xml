@@ -99,10 +99,10 @@
     <plugin name="cordova-plugin-file" spec="^5.0.0" />
     <plugin name="cordova-plugin-camera" spec="^3.0.0" />
     <allow-navigation href="http://192.168.1.133:8100" />
-    <engine name="android" spec="~6.4.0" />
     <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
         <variable name="APP_ID" value="390204028105793" />
         <variable name="APP_NAME" value="rentable" />
     </plugin>
-    <engine name="ios" spec="~4.5.4" />
+    <engine name="ios" spec="4.5.4" />
+    <engine name="android" spec="^6.4.0" />
 </widget>
