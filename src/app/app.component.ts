@@ -17,7 +17,7 @@ import {FinishsignPage} from '../pages/finishsign/finishsign';
 
 export class MyApp {
   //rootPage:any = TabsPage;
-  rootPage: any = LandingPage;
+  rootPage: any = ForgetpassswordPage;
   token:any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private afAuth: AngularFireAuth) {
@@ -25,11 +25,11 @@ export class MyApp {
     afAuth.authState.subscribe(user => {
       if (!user) {
         // you can modify here the page for non. auth users
-        this.rootPage = LandingPage
+        this.rootPage = ForgetpassswordPage
         return;
       }
       // page for auth. users
-      this.rootPage = LandingPage
+      this.rootPage = ForgetpassswordPage
     });
 
     window.addEventListener('native.keyboardshow', keyboardShowHandler);
