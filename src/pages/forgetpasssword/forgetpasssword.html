@@ -1,18 +1,23 @@
 <ion-content class="appcontent">
 
-  <div class="Landingpage">
+ <!--  <div class="Landingpagee"> -->
     
-    <div class="formContainer">
+    <div class="formContainerr">
 
-      <form  class="landingform" [formGroup]="forgetForm">    
+      <form  class="landingformm" [formGroup]="forgetForm">    
         <ion-list >
 			  <ion-item>
 			    <ion-label floating class="helpstring">Code</ion-label>
 			    <ion-input 
+			    id="codenumber"
 			    class="inputstyle"
-			    type="text"
-			    formControlName="code" ></ion-input>
+			    type="number"
+			    formControlName="code"></ion-input>
 			  </ion-item>
+			  <ion-item  *ngIf="code.hasError('required') && code.touched">`
+			  	<p>*Digit code required</p>
+			  </ion-item>
+
 
 			  <ion-item>
 			    <ion-label floating class="helpstring">New Password</ion-label>
@@ -22,6 +27,21 @@
 			    formControlName="newpass"></ion-input>
 			  </ion-item>
 
+			 <!--  <ion-item class="error-message" *ngIf="registerForm.controls['email'].hasError('pattern')  && 	registerForm.controls['email'].touched">
+        		<p>Please enter a valid email.</p>
+		      </ion-item> -->
+ 			<ion-item class="error-message"*ngIf="forgetForm.controls['newpass'].hasError('minlength') && 
+ 			  forgetForm.controls['newpass'].touched">
+        		<p> *Minimum password length is 10</p>
+      		  </ion-item>
+
+		      <ion-item *ngIf="forgetForm.controls['newpass'].hasError('pattern') && 
+		      forgetForm.controls['newpass'].touched ">
+		      	<p class="error-message">*Required atleast one character,number and symbol</p>
+		      </ion-item>
+ 			 
+
+
 			  <ion-item>
 			    <ion-label floating class="helpstring">Confirm Password</ion-label>
 			    <ion-input 
@@ -29,15 +49,22 @@
 			    type="password"
 			    formControlName="conpass"></ion-input>
 			  </ion-item>
+			
+			<ion-item  *ngIf="forgetForm.controls['conpass'].touched && 
+			forgetForm.hasError('mismatchedPasswords') && forgetForm.controls['newpass'].valid">
+        		<p class="error-message">Passwords do not match</p>
+      		</ion-item>
+			   
 
 
 		</ion-list>
-       <button ion-button id="button" class="submit-btn" (click)="forgetPassword()">Submit</button>
+       <button ion-button 
+       id="button" 
+       class="submit-btn" 
+       [disabled]="!forgetForm.valid"
+       (click)="forgetPassword()">Submit</button>
       </form>
 
-
-
-	
     </div>
-  </div>
+ <!--  </div> -->
 </ion-content>

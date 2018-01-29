@@ -30,8 +30,10 @@ export class SignupPage {
   uuid:any;
   tabBarElement:any;
   showFb:boolean;
-  //test
+  //fb test
   users:any;
+  firstName:any;
+  lastName:any;
 
   constructor(
     public navCtrl: NavController,
@@ -44,12 +46,13 @@ export class SignupPage {
     private fb: Facebook
   ) {
     let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-    let PASSWORD_REGEXP=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{10,}$/i;
+    let PASSWORD_REGEXP=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{1,}$/i;
     this.registerForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.pattern(EMAIL_REGEXP),Validators.maxLength(80)])],
       password: ['', Validators.compose([Validators.maxLength(10),Validators.minLength(10), Validators.required,Validators.pattern(PASSWORD_REGEXP)])],
-      confirmpassword: ['', Validators.compose([Validators.minLength(10), Validators.required,Validators.maxLength(10)])]
-    });
+      confirmpassword: ['',Validators.required],
+    },{validator:this.matchingPasswords('password','confirmpassword')});
+
     this.Usersignup=navParams.get("user");
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
     this.showFb=false;
@@ -95,7 +98,7 @@ export class SignupPage {
     this.navCtrl.setRoot(FinishsignPage,{
       user:this.Usersignup
     });*/
-
+    this.Usersignup.id=0;
     this.Usersignup.email=this.email.value;
     this.Usersignup.password=this.password.value;
     this.navCtrl.setRoot(FinishsignPage,{
@@ -123,12 +126,40 @@ getUserDetail(userid) {
 
   this.fb.api("/"+userid+"/?fields=id,email,name,first_name,last_name,picture,gender",["public_profile"])
     .then(res => {
-      this.users=res;
+    
+    this.users=res;
+    this.Usersignup.id=1;
+    this.Usersignup.email=this.users.email;
+    this.Usersignup.password=this.password.value;
+    this.Usersignup.firstName=this.users.first_name;
+    this.Usersignup.lastName=this.users.last_name;
+
+    this.navCtrl.setRoot(FinishsignPage,{
+      user:this.Usersignup
+    });
+
+      
     })
     .catch(e => {
       console.log(e);
     });
 }
+
+
+matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
+    // TODO maybe use this https://github.com/yuyang041060120/ng2-validation#notequalto-1
+    return (group: FormGroup): {[key: string]: any} => {
+      let password = group.controls[passwordKey];
+      let confirmPassword = group.controls[confirmPasswordKey];
+
+      if (password.value !== confirmPassword.value) {
+        return {
+          mismatchedPasswords: true
+        };
+      }
+    }
+  }
+
 
 
 }

@@ -67,11 +67,15 @@
             </ion-label>
           </ion-col>
           <ion-col col-2 class="checkstyle">
-            <ion-checkbox  color="secondary"></ion-checkbox>
+            <ion-checkbox  
+            color="secondary"
+            formControlName="termaccepted"></ion-checkbox>
           </ion-col>
         </ion-row>
       </ion-list>
-      <button ion-button class="signupbutton" (click)="finishsignup()">REGISTER</button>
+      <button ion-button class="signupbutton" 
+      (click)="finishsignup()"
+      [disabled]="!finishsignupform.valid">REGISTER</button>
     </form>
   </div>
 </ion-content>

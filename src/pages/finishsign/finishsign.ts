@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams,ToastController } from 'ionic-angular';
-import { FormBuilder, Validators,FormGroup } from '@angular/forms';
+import { FormBuilder, Validators,FormGroup,FormControl } from '@angular/forms';
 import { AuthenticateProvider } from '../../providers/authenticate/authenticate';
 
 import { TabPage } from '../tab/tab';
@@ -22,6 +22,7 @@ export class FinishsignPage {
   lastname:any;
   postalcode:any;
   tabBarElement:any;
+  termaccepted:any;
 
   constructor(
     public navCtrl: NavController,
@@ -31,14 +32,16 @@ export class FinishsignPage {
     public toastCtrl:ToastController
   ) {
     this.finishsignupform = formBuilder.group({
-      firstname: ['', Validators.compose([Validators.maxLength(50), Validators.minLength(10), Validators.required])],
-      lastname: ['', Validators.compose([Validators.maxLength(50), Validators.minLength(10), Validators.required])],
-      postalcode: ['', Validators.compose([Validators.minLength(5), Validators.maxLength(10), Validators.required])]
+      firstname: ['', Validators.compose([Validators.maxLength(50), Validators.minLength(3), Validators.required])],
+      lastname: ['', Validators.compose([Validators.maxLength(50), Validators.minLength(3), Validators.required])],
+      postalcode: ['', Validators.compose([Validators.minLength(5), Validators.maxLength(10), Validators.required])],
+      termaccepted:[false,Validators.compose([this.isChecked,Validators.required])]
     });
     this.Usersignup=navParams.get("user");
     this.firstname=this.finishsignupform.controls['firstname'];
     this.lastname=this.finishsignupform.controls['lastname'];
     this.postalcode=this.finishsignupform.controls['postalcode'];
+    this.termaccepted=this.finishsignupform.controls['termaccepted'];
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
   }
 
@@ -97,5 +100,17 @@ export class FinishsignPage {
       closeButtonText: 'Ok'
     });
     toast.present();
+  }
+
+  //function to chek whether checkbox checked or not
+  isChecked(control: FormControl) : any{
+
+    if(control.value != true){
+      return {
+        "notChecked" : true
+      };
+    }
+
+    return null;
   }
 }
