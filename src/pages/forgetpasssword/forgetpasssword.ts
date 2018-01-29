@@ -45,6 +45,7 @@ export class ForgetpassswordPage {
     this.conpass=this.forgetForm.controls['conpass'];
 
 
+
   }
 
   ionViewDidLoad() {
