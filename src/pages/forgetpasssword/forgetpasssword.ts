@@ -22,13 +22,14 @@ export class ForgetpassswordPage {
 	newpass:any;
 	conpass:any;
 	forgetForm:FormGroup;
-
+  codee:any;
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams,
     public formBuilder: FormBuilder,
     public authprovier: AuthenticateProvider,
     public toastCtrl:ToastController) {
 
+    this.code="6465";
     let PASSWORD_REGEXP=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{1,}$/i;
 
   	this.forgetForm = formBuilder.group({

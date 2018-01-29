@@ -97,7 +97,8 @@ export class FinishsignPage {
      const toast = this.toastCtrl.create({
       message: msg,
       showCloseButton: true,
-      closeButtonText: 'Ok'
+      closeButtonText: 'Ok',
+      position: "top"
     });
     toast.present();
   }
